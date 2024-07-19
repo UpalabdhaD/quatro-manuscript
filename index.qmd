@@ -1,39 +1,103 @@
 ---
-title: La Palma Earthquakes
-author:
-  - name: Steve Purves
-    orcid: 0000-0002-0760-5497
+title: "A Manuscript title"
+date: last-modified
+# for "authors:" Affiliations are referenced (rather than placed inline)
+authors:
+  - name: Upalabdha Dey
+    affiliations: 
+      - ref: tu
+    id: ud
+    degrees: M.Sc
+    orcid: 0000-0002-8963-4346
     corresponding: true
-    email: steve@curvenote.com
+    equal-contributor: "yes"
+    email: upalabdhadey@gmail.com
     roles:
       - Investigation
       - Project administration
       - Software
       - Visualization
-    affiliations:
-      - Curvenote
+
   - name: Rowan Cockett
+    affiliations:
+      - ref: rc
     orcid: 0000-0002-7859-8394
     corresponding: false
+    equal-contributor: "true"
     roles: []
-    affiliations:
-      - Curvenote
-keywords:
-  - La Palma
-  - Earthquakes
+
+affiliations:
+      - id: tu
+        name: Tezpur University, Molecular Biology and Biotechnology, Tezpur, Assam, 784028
+      - id: rc
+        name: curvnote
+        
 abstract: |
-  In September 2021, a significant jump in seismic activity on the island of La Palma (Canary Islands, Spain) signaled the start of a volcanic crisis that still continues at the time of writing. Earthquake data is continually collected and published by the Instituto Geográphico Nacional (IGN). ...
-plain-language-summary: |
-  Earthquake data for the island of La Palma from the September 2021 eruption is found ...
+  In September 2021, a significant jump in seismic activity on the island of La Palma (Canary Islands, Spain) signaled the start of a volcanic crisis that still continues at the time of writing. Earthquake data is continually collected and published by the Instituto Geográphico Nacional (IGN).
+
 key-points:
   - A web scraping script was developed to pull data from the Instituto Geogràphico Nacional into a machine-readable form for analysis
   - Earthquake events on La Palma are consistent with the presence of both mantle and crustal reservoirs.
-date: last-modified
-bibliography: references.bib
+
+keywords:
+  - La Palma
+  - Earthquakes
+  
+license: "CC BY"
+
+copyright: 
+  holder: ud
+  year: 2024
+  
 citation:
-  container-title: Earth and Space Science
+  container-title: "A journal name"
+  volume: 1
+  issue: 1
+  doi: 10.2234/22333409
+  
+funding: "NIH (Grant #: 1-R01-MH99999-01A1)"
+
+bibliography: references.bib
+
+filters: 
+  - authors-block # for word and pdf document authors block https://github.com/kapsner/authors-block
+format:
+   # html: default
+   docx: default
+   pdf:
+     keep-tex: true
+     formatting: preprint
+     output-file: "Manuscript.pdf"
+     # template-partials:
+     #    - _extensions/partials/title.tex
+     include-in-header:
+       text: |
+         \usepackage{lineno}
+         \linenumbers
+   elsevier-pdf:
+      keep-tex: true
+      include-in-header:
+          text: |
+            \usepackage{lineno}
+            \linenumbers
+      journal:
+        name: JournalName
+        abstract: |
+          In September 2021, a significant jump in seismic activity on the island of La Palma (Canary Islands, Spain) signaled the start of a volcanic crisis that still continues at the time of writing. Earthquake data is continually collected and published by the Instituto Geográphico Nacional (IGN).
+        highlights:
+          - Highlight 1
+          - Highlight 2
+          - Highlight 3
+        formatting: preprint
+        model: 3p # 5p always two column; alt: 3p
+        layout: twocolumn
+        cite-style: super
+        output-file: "Manuscript-elsevier.pdf"
+        
 number-sections: true
 ---
+
+\newpage
 
 ## Introduction
 
@@ -77,16 +141,16 @@ $$ {#eq-poisson}
 
 where $\lambda$ is the rate of eruptions per year. Using @eq-poisson, the probability of an eruption in the next $t$ years can be calculated.
 
-| Name                 | Year   |
-| -------------------- | ------ |
-| Current              | 2021   |
-| Teneguía             | 1971   |
-| Nambroque            | 1949   |
-| El Charco            | 1712   |
-| Volcán San Antonio   | 1677   |
-| Volcán San Martin    | 1646   |
-| Tajuya near El Paso  | 1585   |
-| Montaña Quemada      | 1492   |
+| Name                | Year |
+|---------------------|------|
+| Current             | 2021 |
+| Teneguía            | 1971 |
+| Nambroque           | 1949 |
+| El Charco           | 1712 |
+| Volcán San Antonio  | 1677 |
+| Volcán San Martin   | 1646 |
+| Tajuya near El Paso | 1585 |
+| Montaña Quemada     | 1492 |
 
 : Recent historic eruptions on La Palma {#tbl-history}
 
@@ -94,7 +158,7 @@ where $\lambda$ is the rate of eruptions per year. Using @eq-poisson, the probab
 
 ![Map of La Palma](images/la-palma-map.png){#fig-map}
 
-La Palma is one of the west most islands in the Volcanic Archipelago of the Canary Islands (@fig-map). 
+La Palma is one of the west most islands in the Volcanic Archipelago of the Canary Islands (@fig-map).
 
 {{< embed notebooks/explore-earthquakes.qmd#fig-spatial-plot >}}
 
@@ -106,6 +170,5 @@ La Palma is one of the west most islands in the Volcanic Archipelago of the Cana
 
 ## References {.unnumbered}
 
-:::{#refs}
-
+::: {#refs}
 :::
